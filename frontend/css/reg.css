@@ -121,3 +121,12 @@ input[type=date]::placeholder{
     font-weight: 400;
     font-size: 13px;
 }
+.poster-part{
+    background-color: rgb(245, 241, 241);
+    width: 40%;
+    height: 200px;
+}
+.poster-part img{
+    width: 90%;
+    height: 200px;
+}

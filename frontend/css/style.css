@@ -117,13 +117,14 @@
 }
 
 .movies img{
-    width: 80%;
+    width: 65%;
     border-radius: 10px;
     margin-top: 10px;
 }
 .list-data{
     display: flex;
     flex-wrap: wrap;
+    gap: 1px;
     
 }
 .movies-p1{
