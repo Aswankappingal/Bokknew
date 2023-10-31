@@ -10,10 +10,10 @@ async function getdetails(){
     .then((res)=>res.json())
     .then((data)=>{console.log(data);
         s ="";
-        s+=` <img src="../images/leo.jpg" alt="" class="background-image">
+        s+=` <img src="${data.Movie_poster}" alt="" class="background-image">
         <div class="movie-details-content">
            <div class="movei-content-left">
-            <div class="poster-cap"><img src="${data.Movie_poster}" alt="" class="overlay-image"><p class="poster-cap-p">in cinemas</p></div>
+            <div class="poster-cap"><img src="${data.Movie_banner}" alt="" class="overlay-image"><p class="poster-cap-p">in cinemas</p></div>
            </div>
            <div class="movei-content-right">
             <h1 class="movie-name">${data.Movie_Title}</h1>
