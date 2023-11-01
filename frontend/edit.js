@@ -1,15 +1,15 @@
-
-
 const url=window.location.href
 const search = new URLSearchParams(url.split("?")[1]);
 const id=search.get("id")
 console.log(id);
+let bnr,pstr;
 
-
-fetch(`http://localhost:3004/api/movieDetails/${id}`,{method:"POST"})
+fetch(`http://localhost:3004/api/movieDetails/${id}`,{method:"POST",})
 .then((res)=>res.json())
 .then((data)=>{
 console.log(data);
+let pstr=data.Movie_poster
+bnr=data.Movie_banner
 
 document.getElementById("formm").innerHTML=` <form action="../index.html" id="frm" >
 <label>Movie Title</label>
@@ -38,15 +38,15 @@ document.getElementById("formm").innerHTML=` <form action="../index.html" id="fr
 <div>
 <label>Upload Movie Banner</label>
 <input type="file" title="file" class="file" id="UploadB">
-<div class="poster-part">
-<img src="${data.Movie_banner}" alt="">
+<div class="banner-part" id="upload-movie-banner">
+<img src="${bnr}" alt="" id="bnr">
 </div>
 </div> 
 <div>
 <label>Upload Movie Poster</label>
 <input type="file" title="file" class="file" id="UploadP">
-<div class="poster-part">
-<img src="${data.Movie_poster}" alt="">
+<div class="poster-part" id="upload-movie-poster">
+<img src="${pstr}" alt="" id="pstr">
 </div>
 </div> 
 <div class="sbmt-btn">
@@ -54,7 +54,42 @@ document.getElementById("formm").innerHTML=` <form action="../index.html" id="fr
 
 
 
+document.getElementById("UploadB").addEventListener('change',(e)=>{
+
+
+  convertToBase64(e.target.files[0]).then((data)=>{
+    bnr=data
+    console.log(bnr);
+    document.getElementById("bnr").src=bnr;
+  })
+})
+
+document.getElementById("UploadP").addEventListener('change',(e)=>{
+
+
+  convertToBase64(e.target.files[0]).then((data)=>{
+    pstr=data
+    console.log(bnr);
+    document.getElementById("pstr").src=pstr;
+  })
+})
 
 
 
 })
+
+
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+          resolve(fileReader.result)
+      }
+      fileReader.onerror = (error) => {
+          reject(error)
+      }
+  })
+}
+

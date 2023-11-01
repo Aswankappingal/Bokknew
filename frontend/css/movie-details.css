@@ -116,10 +116,12 @@
     display: inline-block;
 }
 
+
 .movie-banner .background-image {
     display: block;
     width: 100%;
-    height: auto;
+    height: 800px;
+    
 }
 
 .movie-banner .movie-details-content {

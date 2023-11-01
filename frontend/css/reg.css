@@ -130,3 +130,14 @@ input[type=date]::placeholder{
     width: 90%;
     height: 200px;
 }
+.banner-part{
+    background-color: rgb(245, 241, 241);
+    width: 80%;
+    height: 200px;
+
+}
+.banner-part img{
+    width: 100%;
+    height: 200px;
+
+}
